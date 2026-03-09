@@ -1,6 +1,12 @@
 # <div align="center">RP CORE — Universo Hackintosh</div>
+<p align="center">
+  <img src="https://img.shields.io/github/followers/luchina-gabriel?style=for-the-badge" alt="GitHub followers">
+  <img src="https://img.shields.io/github/downloads/luchina-gabriel/RP-CORE/total?style=for-the-badge" alt="GitHub Downloads">
+  <img src="https://img.shields.io/github/stars/luchina-gabriel/RP-CORE?style=for-the-badge" alt="GitHub Repo stars">
+  <img src="https://img.shields.io/github/repo-size/luchina-gabriel/RP-CORE?style=for-the-badge" alt="GitHub repo size">
+</p>
 
-<div align="center"><img width="1562" height="895" alt="RP-CORE-1 0 1" src="https://github.com/user-attachments/assets/eb6ebd33-e86a-48fc-bdd5-c49209a27195" /></div>
+<img width="1450" height="783" alt="RPVERION-101" src="https://github.com/user-attachments/assets/6358daa0-728e-4ccb-8e19-141c61e913e4" />
 
 Script to apply **Root Patching** (SSV snapshot) for:
 
