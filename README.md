@@ -38,6 +38,8 @@ Script to apply **Root Patching** (SSV snapshot) for:
     - For BCM94360 (AMFIPass.kext, IO80211FamilyLegacy.kext, IOSkywalkFamily.kext and AirPortBrcmNIC.kext)
     - For Intel (AirportItlwm.kext/Ventura)
     - For Audio (AppleALC.kext)
+- **DisableIoMapper** enabled in your EFI
+    - `DisableIoMapper = True`;     
 - **Kernel/Block Patches**
     - `Allow IOSkywalk Downgrade - Patch for activate BCM Wireless`
 - **Permission to load AMFIPass Beta**
