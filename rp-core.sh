@@ -411,19 +411,22 @@ check_item_markers_quiet() {
 
   # directory: compare markers
   if [[ -d "$src" ]]; then
-    local marker_glob=""
+    # Store only the marker DIRECTORY (no trailing glob) so it can be quoted.
+    # The '/*' glob is expanded on the quoted dir below, which keeps paths with
+    # spaces intact (an unquoted glob string would be word-split by IFS).
+    local marker_dir=""
     if [[ "$item" == *.framework ]]; then
-      marker_glob="${src}/Versions/A/*"
+      marker_dir="${src}/Versions/A"
     elif [[ "$item" == *.kext ]]; then
-      marker_glob="${src}/Contents/MacOS/*"
+      marker_dir="${src}/Contents/MacOS"
     elif [[ "$item" == *.app ]]; then
-      marker_glob="${src}/Contents/MacOS/*"
+      marker_dir="${src}/Contents/MacOS"
     fi
 
     local found=0
     local mf rel
-    if [[ -n "$marker_glob" ]]; then
-      for mf in $marker_glob; do
+    if [[ -n "$marker_dir" ]]; then
+      for mf in "$marker_dir"/*; do
         [[ -e "$mf" ]] || continue
         [[ -d "$mf" ]] && continue
         found=1
@@ -991,17 +994,20 @@ do_status() {
     fi
 
     if [[ -d "$src" ]]; then
-      local marker_glob=""
+      # Store only the marker DIRECTORY (no trailing glob) so it can be quoted.
+      # The '/*' glob is expanded on the quoted dir below, which keeps paths with
+      # spaces intact (an unquoted glob string would be word-split by IFS).
+      local marker_dir=""
       if [[ "$item" == *.framework ]]; then
-        marker_glob="${src}/Versions/A/*"
+        marker_dir="${src}/Versions/A"
       elif [[ "$item" == *.kext ]]; then
-        marker_glob="${src}/Contents/MacOS/*"
+        marker_dir="${src}/Contents/MacOS"
       fi
 
       local found_marker=0
-      if [[ -n "$marker_glob" ]]; then
+      if [[ -n "$marker_dir" ]]; then
         local mf
-        for mf in $marker_glob; do
+        for mf in "$marker_dir"/*; do
           [[ -e "$mf" ]] || continue
           [[ -d "$mf" ]] && continue
           found_marker=1
